@@ -1,0 +1,214 @@
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html * {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.darkgreen {
+  background: #3b5249;
+  color: white;
+}
+
+.medgreen {
+  background: #519872;
+  color: white;
+}
+
+.lightgreen {
+  background: #afd4c0;
+  color: white;
+}
+
+.lightergreen {
+  background: #e5f4ec;
+  color: #333333;
+}
+
+.vividgreen {
+  background: #8aea92;
+  color: #333333;
+}
+
+.pink {
+  background: #fec2c2;
+  color: #333333;
+}
+
+.gray {
+  background: #dedede;
+  color: #333333;
+}
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body, html {
+  height: 100%;
+}
+
+.card {
+  border-style: none;
+}
+
+.cardInterior{
+  border-style: solid;
+  border-width: 1px;
+  border-color: #D5D8DC;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 0px 0px rgba(0,0,0,0.1);
+}
+
+#vertCenter {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexH {
+  display: flex;
+  flex-direction: row;
+}
+
+.flexV {
+  display: flex;
+  flex-direction: column;
+}
+
+.aic {
+  align-items: center;
+}
+
+.jcc {
+  justify-content: center;
+}
+
+.jcsb {
+  justify-content: space-between;
+}
+
+.jcs {
+  justify-content: flex-start;
+}
+
+.jc3 {
+  justify-content: end;
+}
+
+.mla {
+  margin-left: auto;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.nowrap {
+  flex-wrap: nowrap;
+}
+
+.disabled {
+  opacity: .3 !important;
+}
+
+input {
+  width: 50%;
+}
+
+.headerContainer {
+  height: 75px;
+}
+
+.logo {
+  margin-left: 30px;
+}
+
+.mainContainer {
+}
+
+.dashboardContainer, .wizardContainer {
+  width: 50%;
+  padding: 0 30px 30px 30px;
+}
+
+.underline {
+  border-bottom-style: solid;
+}
+
+button {
+  height: 30px;
+  padding: 0px 10px;
+  border-style: none;
+  font-size: .75em;
+  font-weight: bolder;
+}
+
+h1 {
+  font-size: 1.75em;
+}
+
+label {
+  margin-right: 10px;
+}
+
+input {
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.propertyAddress {
+  width: 100%;
+}
+
+.propertyCity {
+  width: 12em;
+  margin-right: 10px;
+}
+
+.propertyName {
+  margin-top: 20px;
+}
+
+.complete {
+  margin-top: 20px;
+}
+
+.houseContainer {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: .75em;
+}
+
+.homeStats {
+  margin-left: 20px;
+}
+
+.fc {
+  border-style: solid;
+}
+
+.xButton {
+  background: red;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+}
+
+.stat {
+  margin-bottom: 5px;
+}
