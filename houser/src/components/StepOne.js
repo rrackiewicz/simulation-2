@@ -1,122 +1,127 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
-import axios from 'axios'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { action_updateName, action_updateAddress, action_updateCity, action_updateState, action_updateZip, } from '../ducks/reducer'
+
 
 class StepOne extends Component {
   constructor() {
     super()
-    this.state = {
-      id: 0,
-      name: '',
-      address: '',
-      city: '',
-      state: '',
-      zip: 0
-    }
-    this.updateName = this.updateName.bind(this)
-    this.updateAddress = this.updateAddress.bind(this)
-    this.updateCity = this.updateCity.bind(this)
-    this.updateState = this.updateState.bind(this)
-    this.updateZip = this.updateZip.bind(this)
-    this.submitHouse = this.submitHouse.bind(this)
+    // this.state = {
+    //     id: 0,
+    //     name: '',
+    //     address: '',
+    //     city: '',
+    //     st: '',
+    //     zip: 0
+    // }
+
+    // this.updateName = this.updateName.bind(this)
+    // this.updateAddress = this.updateAddress.bind(this)
+    // this.updateCity = this.updateCity.bind(this)
+    // this.updateState = this.updateState.bind(this)
+    // this.updateZip = this.updateZip.bind(this)
   }
 
-  updateName(e){
-    this.setState({name: e.target.value})
-  }
+  // updateName(e){
+  //   let listing = { ...this.state.listing }
+  //   listing.name = e.target.value
+  //   this.setState({listing})
+  // }
 
-  updateAddress(e){
-    this.setState({address: e.target.value})
-  }
+  // updateAddress(e){
+  //   let listing = { ...this.state.listing }
+  //   listing.address = e.target.value
+  //   this.setState({listing})
+  // }
 
-  updateCity(e){
-    this.setState({city: e.target.value})
-  }
+  // updateCity(e){
+  //   let listing = { ...this.state.listing }
+  //   listing.city = e.target.value
+  //   this.setState({listing})
+  // }
 
-  updateState(e){
-    this.setState({state: e.target.value})
-  }
+  // updateState(e){
+  //   let listing = { ...this.state.listing }
+  //   listing.st = e.target.value
+  //   this.setState({listing})
+  // }
 
-  updateZip(e){
-    this.setState({zip: e.target.value})
-  }
+  // updateZip(e){
+  //   let listing = { ...this.state.listing }
+  //   listing.zip = e.target.value
+  //   this.setState({listing})
+  // }
 
-  clearForm() {
-    this.setState({
-      id: 0,
-      name: '',
-      address: '',
-      city: '',
-      state: '',
-      zip: 0
-    })
-  }
-
-  submitHouse(){
-    const newListing = {
-      name: this.state.name ,
-      address: this.state.address,
-      city: this.state.city,
-      state: this.state.state,
-      zip: this.state.zip
-    }
-    axios.post('/api/inventory', newListing).then(res => {
-      const newListing = res.data
-      const {name, address, city, state, zip} = newListing  
-      this.setState({
-        name,
-        address,
-        city,
-        state,
-        zip
-      })
-      this.clearForm()
-    }).catch(err =>{
-      console.log("Failed to submit listing")
-    })
-  }
+  // clearForm() {
+  //  let listing = { ...this.state.listing }
+  //     listing = {
+  //       id: 0,
+  //       name: '',
+  //       address: '',
+  //       city: '',
+  //       st: '',
+  //       zip: 0
+  //     }
+  //   this.setState({ listing })
+  // }
 
   render() {
     return (
-      <div className="wizardContainer lightergreen">
-        <div className="flexH aic underline">
-          <div><h1>Add New Listing</h1></div>
-          <div className="mla">
-            <Link to='/'><button className="pink">Cancel</button></Link>
-          </div>
-        </div>
+      <div className="">
         <div className="flexV">
           <div className="propertyName" >       
             <label>Property Name</label>
-            <input onChange={this.updateName} type="text" placeholder="" value={this.state.name}/>
+            <input onChange={(e) => this.props.action_updateName(e.target.value)} type="text" placeholder="" value={this.props.name}/>
           </div>
           <div className="propertyAddress">
             <label>Address</label>
-            <input onChange={this.updateAddress} type="text" placeholder="" value={this.state.address}/>
+            <input onChange={(e) => this.props.action_updateAddress(e.target.value)} type="text" placeholder="" value={this.props.address}/>
           </div> 
         </div>
-        <div className="flexH jcsb">
+
+        <div className="flexH jcsb test">
           <div className="propertyCity">
             <label>City</label>
-            <input onChange={this.updateCity} className="propertyCity" type="text" placeholder="" value={this.state.city}/>
+            <input onChange={(e) => this.props.action_updateCity(e.target.value)} className="propertyCity" type="text" placeholder="" value={this.props.city}/>
           </div>
-          <div className="propertyState" value={this.state.state}>
+          <div className="propertyState">
             <label>State</label>
-            <input onChange={this.updateState} className="propertyState" type="text" placeholder="" value={this.state.state}/>          
+            <input onChange={(e) => this.props.action_updateState(e.target.value)} className="propertyState" type="text" placeholder="" value={this.props.st}/>          
           </div>
-          <div className="propertyAddress" value={this.state.zip}>
+          <div className="propertyAddress">
             <label>Zip</label>
-            <input onChange={this.updateZip} className="propertyZip" type="text" placeholder="" value={this.state.zip}/>  
+            <input onChange={(e) => this.props.action_updateZip(e.target.value)} className="propertyZip" type="text" placeholder="" value={this.props.zip}/>  
           </div>
         </div>
-        <div className="flexH complete">
+
+        <div className="flexH buttonRow test">
           <div className="mla">
-            <Link to='/'><button onClick={this.submitHouse} className="vividgreen">Complete</button></Link>
+          {/* TODO: REDUX STUFF ON CLICK */}
+            <Link to='/wizard/2'><button className="darkgreen">Next Step</button></Link>
           </div>
         </div> 
       </div>
     );
   }
 }
+function mapStateToProps(state) {
+  const {name, address, city, st, zip} = state;
+  return {
+    name,
+    address,
+    city,
+    st,
+    zip
+  } 
+}
 
-export default StepOne;
+let actions = {
+  action_updateName,
+  action_updateAddress,
+  action_updateCity,
+  action_updateState,
+  action_updateZip
+}
+
+export default connect( mapStateToProps, actions )( StepOne );

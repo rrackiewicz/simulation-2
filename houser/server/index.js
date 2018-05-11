@@ -6,6 +6,7 @@ require('dotenv').config()
 
 const app = express();
 app.use( bodyParser.json() );
+app.use( express.static( `${__dirname}/build` ) )
 
 massive(process.env.CONNECTION_STRING).then(dbInstance => {
   console.log('Database connecting...')

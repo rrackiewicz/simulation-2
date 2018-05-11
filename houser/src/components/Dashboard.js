@@ -16,12 +16,15 @@ class App extends Component {
     this.getListings()
   }
 
+  componentDidUpdate() {
+    this.getListings()
+  }
+
   getListings(){
     axios.get('/api/inventory').then(res => {
       let houses = [...this.state.houses]
       houses = res.data
       this.setState({ houses })
-      console.log(houses)
     }).catch( err => {
       console.log("Failed to get listings")
     })
@@ -38,7 +41,6 @@ class App extends Component {
 
   render() {
     let renderHouses = this.state.houses.map((e,i) => {
-      console.log(e)
       return (
         <House
           key={e+i} 
@@ -53,7 +55,7 @@ class App extends Component {
         <div className="flexH aic underline">
           <div><h1>Dashboard</h1></div>
           <div className="mla">
-            <Link to='/wizard'><button className="vividgreen">Add New Property</button></Link>
+            <Link to='/wizard/1'><button className="vividgreen">Add New Property</button></Link>
           </div>
         </div> 
         <h4>Home Listings</h4>

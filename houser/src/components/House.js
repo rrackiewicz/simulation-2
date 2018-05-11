@@ -2,13 +2,12 @@ import React from 'react'
 import placeholder from '../placeholder.png'
 
 function House(props) {
-  const {id, name, address, city, state, zip} = props.house
-  console.log(`ID received was ${id}`)
+  const {id, name, address, city, state, zip, image, mortgage, rent} = props.house
   return (
     <div className="houseContainer gray">
       <div className="flexH">
         <div className="">
-          <img src={placeholder} width="150px" alt=""/>
+          <img src={image} width="150px" alt=""/>
         </div>
         <div className="homeStats">
           <div className="flexV">
@@ -21,8 +20,8 @@ function House(props) {
         </div>
         <div className="homeStats">
           <div className="flexV">
-            <div className="stat">Monthly Mortgage: </div>
-            <div className="stat">Desired Rent:</div>
+            <div className="stat">Monthly Mortgage: {mortgage}</div>
+            <div className="stat">Desired Rent: {rent}</div>
           </div>
         </div>
         <div className="mla flexH">
